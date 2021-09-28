@@ -9,12 +9,17 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3" class="question-box">
-          <QuestionBox
-              v-if="questions.length > 0"
-              :currentQuestion = "questions[index]"
-              :nextQuestion = "next"
-              :increment = "increment"
-          />
+          <div v-if='this.index < 10'>
+            <QuestionBox
+                v-if="questions.length > 0"
+                :currentQuestion = "questions[index]"
+                :nextQuestion = "next"
+                :increment = "increment"
+            />
+          </div>
+          <div v-if='this.index >= 10'>
+            <p>Game Over</p>
+          </div>
         </b-col>
       </b-row>
     </b-container>
